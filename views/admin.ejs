@@ -1,0 +1,19 @@
+<% layout('layout', { title: 'Admin felület', user: user }) %>
+
+<section id="main" class="alt">
+  <div class="inner">
+    <header class="major">
+      <h2>Admin felület</h2>
+    </header>
+
+    <p>Üdvözöllek, <b><%= user.username %></b>!</p>
+
+    <p>Itt jelenítheted meg vagy kezelheted az adatokat (felhasználók, statisztikák stb.).  
+    Később akár táblázatot vagy lekérdezéseket is beilleszthetsz ide.</p>
+
+    <ul class="actions">
+      <li><a href="/app021/" class="button">Vissza a főoldalra</a></li>
+      <li><a href="/app021/logout" class="button primary">Kijelentkezés</a></li>
+    </ul>
+  </div>
+</section>

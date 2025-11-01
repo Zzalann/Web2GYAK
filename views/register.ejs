@@ -1,0 +1,36 @@
+<% layout('layout', { title: 'Regisztráció', user: user }) %>
+
+<section id="contact">
+  <div class="inner">
+    <section>
+      <header class="major">
+        <h2>Regisztráció</h2>
+      </header>
+
+      <% if (error) { %>
+        <p style="color: red; font-weight: bold;"><%= error %></p>
+      <% } %>
+
+      <form method="POST" action="/app021/register">
+        <div class="fields">
+          <div class="field half">
+            <label>Felhasználónév</label>
+            <input type="text" name="username" required />
+          </div>
+          <div class="field half">
+            <label>Jelszó</label>
+            <input type="password" name="password" required />
+          </div>
+        </div>
+
+        <ul class="actions">
+          <li><input type="submit" value="Regisztráció" class="primary" /></li>
+        </ul>
+      </form>
+    </section>
+
+    <section class="split">
+      <p>Már van fiókod? <a href="/app021/login">Jelentkezz be!</a></p>
+    </section>
+  </div>
+</section>

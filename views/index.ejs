@@ -1,0 +1,16 @@
+<% layout('layout', { title: 'Kezdőlap', user: user }) %>
+
+<section id="banner" class="major">
+  <div class="inner">
+    <header class="major">
+      <h1>Üdvözöllek az oldalon!</h1>
+    </header>
+    <div class="content">
+      <% if (user) { %>
+        <p>Bejelentkezve mint: <b><%= user.username %></b> (<%= user.role %>)</p>
+      <% } else { %>
+        <p><a href="/app021/login">Bejelentkezés</a> | <a href="/app021/register">Regisztráció</a></p>
+      <% } %>
+    </div>
+  </div>
+</section>

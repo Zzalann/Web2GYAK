@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html lang="hu">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title><%- typeof title !== 'undefined' ? title : 'Forty Web2EA' %></title>
+    <link rel="stylesheet" href="/app021/assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="/app021/assets/css/noscript.css" /></noscript>
+  </head>
+
+  <body class="is-preload">
+    <div id="wrapper">
+
+      
+      <header id="header" class="alt">
+        <a href="/app021/" class="logo">
+          <strong>Web II. Gyakorlat</strong> <span>Beadandó</span>
+        </a>
+        <nav>
+          <a href="#menu">Menü</a>
+        </nav>
+      </header>
+
+     
+      <nav id="menu">
+        <ul class="links">
+          <li><a href="/app021/">Kezdőlap</a></li>
+          <% if (!user) { %>
+            <li><a href="/app021/login">Bejelentkezés</a></li>
+            <li><a href="/app021/register">Regisztráció</a></li>
+          <% } else { %>
+            <li><a href="/app021/logout">Kijelentkezés</a></li>
+            <% if (user.role === 'admin') { %>
+              <li><a href="/app021/admin">Admin</a></li>
+            <% } %>
+          <% } %>
+        </ul>
+      </nav>
+
+      
+      <div id="main" class="alt">
+        <div class="inner">
+          <%- body %>
+        </div>
+      </div>
+
+      
+      <footer id="footer">
+        <div class="inner">
+          <p>&copy; 2025 Web II. Gyakorlat beadandó. Készítette: Krecsmarik Zalán és Péva Dániel</p>
+        </div>
+      </footer>
+
+    </div>
+
+   
+    <script src="/app021/assets/js/jquery.min.js"></script>
+    <script src="/app021/assets/js/jquery.scrolly.min.js"></script>
+    <script src="/app021/assets/js/jquery.scrollex.min.js"></script>
+    <script src="/app021/assets/js/browser.min.js"></script>
+    <script src="/app021/assets/js/breakpoints.min.js"></script>
+    <script src="/app021/assets/js/util.js"></script>
+    <script src="/app021/assets/js/main.js"></script>
+  </body>
+</html>
