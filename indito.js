@@ -158,6 +158,41 @@ app.get("/app021/admin", checkAuth, (req, res) => {
   });
 });
 
+// Kapcsolat űrlap megjelenítés
+app.get("/app021/kapcsolat", (req, res) => {
+  res.render("kapcsolat", { user: req.session.user, success: false });
+});
+
+// Kapcsolat űrlap elküldése
+app.post("/app021/kapcsolat", (req, res) => {
+  const { name, message } = req.body;
+  db.query(
+    "INSERT INTO messages (name, message) VALUES (?, ?)",
+    [name, message],
+    (err) => {
+      if (err) {
+        console.error(err);
+        return res.send("Hiba történt az üzenet mentésekor.");
+      }
+      res.render("kapcsolat", { user: req.session.user, success: true });
+    }
+  );
+});
+
+// Üzenetek megjelenítése (csak bejelentkezett felhasználónak)
+app.get("/app021/uzenetek", checkAuth, (req, res) => {
+  db.query(
+    "SELECT * FROM messages ORDER BY created_at DESC",
+    (err, results) => {
+      if (err) {
+        console.error(err);
+        return res.send("Hiba történt az üzenetek lekérdezésekor.");
+      }
+      res.render("uzenetek", { user: req.session.user, messages: results });
+    }
+  );
+});
+
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });

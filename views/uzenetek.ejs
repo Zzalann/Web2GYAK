@@ -1,0 +1,28 @@
+<% layout('layout', { title: 'Üzenetek', user: user }) %>
+
+<section class="wrapper style2">
+  <div class="inner">
+    <header class="major">
+      <h2>Beérkezett üzenetek</h2>
+    </header>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Név</th>
+          <th>Üzenet</th>
+          <th>Küldés ideje</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% messages.forEach(msg => { %>
+          <tr>
+            <td><%= msg.name %></td>
+            <td><%= msg.message %></td>
+            <td><%= msg.created_at.toLocaleString() %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+</section>

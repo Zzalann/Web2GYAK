@@ -1,19 +1,69 @@
-<% layout('layout', { title: 'Főoldal', user: user }) %>
+<% layout('layout', { title: 'Kezdőlap', user: user }) %>
 
-<section id="main" class="wrapper">
+<section id="banner" class="major" style="background-image: url('/app021/assets/images/pic01.jpg'); background-size: cover; background-position: center;">
   <div class="inner">
-    <h1>Üdvözöllek a főoldalon!</h1>
-
-    <% if (user) { %>
-      <p>Bejelentkezve mint: <strong><%= user.username %></strong> (<%= user.role %>)</p>
-      <a href="/app021/logout" class="button">Kijelentkezés</a>
-      <% if (user.role === 'admin') { %>
-        <a href="/app021/admin" class="button">Admin oldal</a>
+    <header class="major">
+      <h1>Üdvözöllek a Forma–1 adatbázis oldalán!</h1>
+    </header>
+    <div class="content">
+      <% if (user) { %>
+        <p>Bejelentkezve mint: <strong><%= user.username %></strong> (<%= user.role %>)</p>
+        <a href="/app021/logout" class="button small">Kijelentkezés</a>
+      <% } else { %>
+        <p><a href="/app021/login" class="button small">Bejelentkezés</a> vagy <a href="/app021/register" class="button small">Regisztráció</a></p>
       <% } %>
-    <% } else { %>
-      <p>Vendégként böngészel. Jelentkezz be vagy regisztrálj, ha több funkciót szeretnél elérni.</p>
-      <a href="/app021/login" class="button">Bejelentkezés</a>
-      <a href="/app021/register" class="button">Regisztráció</a>
-    <% } %>
+    </div>
   </div>
+</section>
+
+<section id="one" class="wrapper style1 special">
+  <div class="inner">
+    <header class="major">
+      <h2>A Forma–1 története</h2>
+      <p>
+        A Forma–1 a világ legnépszerűbb technikai sportja, amely évtizedek óta lenyűgözi a közönséget 
+        sebességével, technológiájával és versenyszellemével. Az adatbázisunk segítségével 
+        betekintést nyerhetsz a versenyzők, csapatok és futamok adataiba, 
+        valamint megismerheted a sportág legnagyobb alakjait.
+      </p>
+    </header>
+    <ul class="icons major">
+      <li><span class="icon solid fa-flag-checkered major style1"><span class="label">Race</span></span></li>
+      <li><span class="icon solid fa-car major style2"><span class="label">Speed</span></span></li>
+      <li><span class="icon solid fa-trophy major style3"><span class="label">Victory</span></span></li>
+    </ul>
+  </div>
+</section>
+
+<section id="two" class="wrapper alt style2">
+  <section class="spotlight">
+    <div class="image"><img src="/app021/assets/images/f1car.jpg" alt="Forma–1 autó" /></div>
+    <div class="content">
+      <h3>Legendás versenyautók</h3>
+      <p>
+        Az évek során számtalan ikonikus versenygép gördült pályára, amelyek technológiai újításaikkal 
+        és formatervezésükkel a motorsport történelmének meghatározó darabjai lettek.
+      </p>
+    </div>
+  </section>
+  <section class="spotlight">
+    <div class="image"><img src="/app021/assets/images/hamilton.jpg" alt="Lewis Hamilton" /></div>
+    <div class="content">
+      <h3>Világbajnok pilóták</h3>
+      <p>
+        A Forma–1 sztárjai a világ legismertebb sportolói közé tartoznak. 
+        Ismerd meg azokat a versenyzőket, akik generációkon át inspirálták a motorsport rajongóit.
+      </p>
+    </div>
+  </section>
+  <section class="spotlight">
+    <div class="image"><img src="/app021/assets/images/race.jpg" alt="Futam" /></div>
+    <div class="content">
+      <h3>Futamok világszerte</h3>
+      <p>
+        A versenyek a világ minden táján zajlanak, Monacótól Szingapúrig, 
+        mindegyik pálya egyedi kihívást és látványt nyújt a rajongóknak.
+      </p>
+    </div>
+  </section>
 </section>

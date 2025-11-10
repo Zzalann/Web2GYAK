@@ -1,0 +1,30 @@
+<% layout('layout', { title: 'Kapcsolat', user: user }) %>
+
+<section id="contact" class="wrapper style1">
+  <div class="inner">
+    <header class="major">
+      <h2>Kapcsolatfelvétel</h2>
+      <p>Írj üzenetet az oldal tulajdonosának!</p>
+    </header>
+
+    <div class="contact-container">
+      <form method="POST" action="/app021/kapcsolat" class="contact-form">
+        <div class="field">
+          <label for="name">Név</label>
+          <input type="text" name="name" id="name" required />
+        </div>
+        <div class="field">
+          <label for="message">Üzenet</label>
+          <textarea name="message" id="message" rows="6" required></textarea>
+        </div>
+        <ul class="actions special">
+          <li><input type="submit" value="Küldés" class="primary" /></li>
+        </ul>
+      </form>
+
+      <% if (success) { %>
+        <p class="success-msg">✅ Üzenet sikeresen elküldve!</p>
+      <% } %>
+    </div>
+  </div>
+</section>

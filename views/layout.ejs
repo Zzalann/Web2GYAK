@@ -32,20 +32,22 @@
       <nav id="menu">
         <ul class="links">
           <li><a href="/app021/">Kezdőlap</a></li>
+          <li><a href="/app021/kapcsolat">Kapcsolat</a></li>
 
           <% if (!user) { %>
             <li><a href="/app021/login">Bejelentkezés</a></li>
             <li><a href="/app021/register">Regisztráció</a></li>
           <% } else { %>
-            <li><a href="/app021/logout">Kijelentkezés</a></li>
             <li><a href="/app021/adatbazis">Adatbázis</a></li>
-
+            <li><a href="/app021/uzenetek">Üzenetek</a></li>
+            <li><a href="/app021/logout">Kijelentkezés</a></li>
             <% if (user.role === 'admin') { %>
               <li><a href="/app021/admin">Admin</a></li>
             <% } %>
           <% } %>
         </ul>
       </nav>
+
 
       <!-- Fő tartalom -->
       <div id="main" class="alt">

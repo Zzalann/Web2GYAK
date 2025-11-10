@@ -3950,3 +3950,111 @@ input, select, textarea {
 			opacity: 1;
 			visibility: visible;
 		}
+
+/* === Egyforma képméret az adatbázis projektben === */
+.spotlight .image img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Képek közötti egységes margó */
+section.spotlight {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* A kép és a szöveg ne csússzon egymásra kisebb képernyőn */
+section.spotlight .content {
+  flex: 1 1 45%;
+  text-align: justify;
+}
+
+section.spotlight .image {
+  flex: 1 1 45%;
+  min-width: 300px;
+}
+/* === Forma–1 története blokk formázása === */
+section.wrapper.style1.special .inner {
+  max-width: 900px;      /* Ne legyen túl széles */
+  margin: 0 auto;        /* Középre igazítás */
+  text-align: justify;   /* Sorok igazítása */
+  line-height: 1.6;      /* Kicsit nagyobb sortávolság */
+  word-break: break-word;
+}
+
+section.wrapper.style1.special h2 {
+  margin-bottom: 1rem;
+}
+
+section.wrapper.style1.special p {
+  font-size: 1.05rem;
+  color: #e2e2e2;
+  text-align: justify;
+}
+
+/* === A "Forma–1 története" alatti szöveg formázása === */
+section.wrapper.style1.special p {
+  text-align: justify;      /* Sorkizárt legyen */
+  white-space: normal;      /* Engedje a sortörést */
+  word-wrap: break-word;    /* Törje a hosszú szavakat */
+  line-height: 1.8;         /* Kényelmes sortávolság */
+  font-size: 1.1rem;        /* Kicsit nagyobb betű */
+  max-width: 1000px;        /* Ne legyen túl széles */
+  margin: 0 auto;           /* Középre igazítás */
+  color: #e0e0e0;           /* Kicsit világosabb szöveg */
+}
+
+/* ===== Kapcsolat oldal stílus ===== */
+.contact-container {
+  max-width: 600px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2.5em 2em;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+}
+
+.contact-form .field {
+  margin-bottom: 1.5em;
+}
+
+.contact-form label {
+  display: block;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 0.5em;
+  text-transform: uppercase;
+  color: #ffffffb5;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  border: none;
+  border-radius: 6px;
+  padding: 0.75em 1em;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: 2px solid #9a8cd9;
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.success-msg {
+  color: #57ff8f;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 1.5em;
+}
+
