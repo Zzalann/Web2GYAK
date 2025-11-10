@@ -1,0 +1,36 @@
+<% layout('layout', { title: title, user: user }) %>
+
+<section id="main" class="wrapper">
+  <div class="inner">
+    <h2>Forma–1 Pilóták</h2>
+
+    <% if (rows && rows.length > 0) { %>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Azonosító</th>
+              <th>Név</th>
+              <th>Nem</th>
+              <th>Születési dátum</th>
+              <th>Nemzetiség</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% rows.forEach(row => { %>
+              <tr>
+                <td><%= row.az %></td>
+                <td><%= row.nev %></td>
+                <td><%= row.nem %></td>
+                <td><%= row.szuldat.toISOString().split('T')[0] %></td>
+                <td><%= row.nemzet %></td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    <% } else { %>
+      <p>Nincs adat a pilóták táblában.</p>
+    <% } %>
+  </div>
+</section>

@@ -51,7 +51,7 @@ function checkAuth(req, res, next) {
 app.get("/app021", (req, res) => {
   res.render("index", {
     title: "Kezdőlap",
-    user: req.session.user,
+    user: req.session.user || null,
   });
 });
 
@@ -128,6 +128,20 @@ app.post("/app021/register", (req, res) => {
       res.redirect("/app021/login");
     }
   );
+});
+
+app.get("/app021/adatbazis", (req, res) => {
+  db.query("SELECT * FROM pilota", (err, results) => {
+    if (err) {
+      console.error(err);
+      return res.send("Hiba az adatbázis-lekérdezés során!");
+    }
+    res.render("adatbazis", {
+      title: "Forma–1 pilóták",
+      user: req.session.user,
+      rows: results,
+    });
+  });
 });
 
 app.get("/app021/logout", (req, res) => {

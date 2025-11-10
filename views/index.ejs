@@ -1,16 +1,19 @@
-<% layout('layout', { title: 'Kezdőlap', user: user }) %>
+<% layout('layout', { title: 'Főoldal', user: user }) %>
 
-<section id="banner" class="major">
+<section id="main" class="wrapper">
   <div class="inner">
-    <header class="major">
-      <h1>Üdvözöllek az oldalon!</h1>
-    </header>
-    <div class="content">
-      <% if (user) { %>
-        <p>Bejelentkezve mint: <b><%= user.username %></b> (<%= user.role %>)</p>
-      <% } else { %>
-        <p><a href="/app021/login">Bejelentkezés</a> | <a href="/app021/register">Regisztráció</a></p>
+    <h1>Üdvözöllek a főoldalon!</h1>
+
+    <% if (user) { %>
+      <p>Bejelentkezve mint: <strong><%= user.username %></strong> (<%= user.role %>)</p>
+      <a href="/app021/logout" class="button">Kijelentkezés</a>
+      <% if (user.role === 'admin') { %>
+        <a href="/app021/admin" class="button">Admin oldal</a>
       <% } %>
-    </div>
+    <% } else { %>
+      <p>Vendégként böngészel. Jelentkezz be vagy regisztrálj, ha több funkciót szeretnél elérni.</p>
+      <a href="/app021/login" class="button">Bejelentkezés</a>
+      <a href="/app021/register" class="button">Regisztráció</a>
+    <% } %>
   </div>
 </section>
